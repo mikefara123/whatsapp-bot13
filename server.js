@@ -29,7 +29,7 @@ function sendReply(chatId, message) {
     const axios = require('axios');
     const token = 'your-whatsapp-api-token';
     
-    axios.post('https://graph.facebook.com/v13.0/your-whatsapp-number-id/messages', {
+    axios.post('https://graph.facebook.com/v13.0/423446030853250/messages', {
         messaging_product: 'whatsapp',
         to: chatId,
         text: { body: message }
