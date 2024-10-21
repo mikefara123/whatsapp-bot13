@@ -4,6 +4,11 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+// Health check route
+app.get('/', (req, res) => {
+    res.send('WhatsApp bot is running!');
+});
+
 app.post('/webhook', (req, res) => {
     const message = req.body.messages[0];
     const fromUser = message.from;  // The user who sent the message
@@ -40,6 +45,7 @@ function sendReply(chatId, message) {
     });
 }
 
+// Start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
